@@ -13,7 +13,8 @@ function App() {
   return (
     <div id="main">
       {/* Do not remove the main div */}
-      <LocationDisplay location={useLocation().pathname} />
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
       <Switch>
         <Route path="/no-match" component={NoMatch} />
         <Route path="/about" exact component={About} />
@@ -21,8 +22,8 @@ function App() {
         <Redirect to="/no-match" />
       </Switch>
 
-      <a href="/">Home</a>
-      <a href="/about">About</a>
+      
+      <LocationDisplay location={useLocation().pathname} />
     </div>
   );
 }
