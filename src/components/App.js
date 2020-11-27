@@ -6,10 +6,7 @@ import LocationDisplay from "./LocationDisplay";
 import NoMatch from "./noMatch";
 import "../styles/App.css";
 
-
 function App() {
-  
-
   return (
     <div id="main">
       {/* Do not remove the main div */}
@@ -22,8 +19,7 @@ function App() {
         <Redirect to="/no-match" />
       </Switch>
 
-      
-      <LocationDisplay location={useLocation().pathname} />
+      <LocationDisplay />
     </div>
   );
 }
