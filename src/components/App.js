@@ -13,10 +13,10 @@ function App() {
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Switch>
-        <Route path={useLocation().pathname} component={NoMatch} />
+        <Route path='/no-match' component={NoMatch} />
         <Route path="/about" exact component={About} />
         <Route path="/" exact component={Home} />
-        <Redirect to={useLocation().pathname} />
+        <Redirect to='/no-match' />
       </Switch>
 
       <LocationDisplay />
@@ -25,3 +25,4 @@ function App() {
 }
 
 export default App;
+export {LocationDisplay};
