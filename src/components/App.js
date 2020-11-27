@@ -6,24 +6,14 @@ import LocationDisplay from "./LocationDisplay";
 import NoMatch from "./noMatch";
 import "../styles/App.css";
 
-function LocationRender() {
-  let newLocation = useLocation().pathname;
-
-  return newLocation;
-}
 
 function App() {
-  const locationPath = LocationRender();
-  const [location, setLocation] = React.useState(locationPath);
-
-  if (location !== locationPath) {
-    setLocation(locationPath);
-  }
+  
 
   return (
     <div id="main">
       {/* Do not remove the main div */}
-      <LocationDisplay location={location} />
+      <LocationDisplay location={useLocation().pathname} />
       <Switch>
         <Route path="/no-match" component={NoMatch} />
         <Route path="/about" exact component={About} />
