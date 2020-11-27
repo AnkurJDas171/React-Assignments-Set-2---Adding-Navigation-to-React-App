@@ -13,10 +13,10 @@ function App() {
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Switch>
-        <Route path="/no-match" component={NoMatch} />
+        <Route path={useLocation().pathname} component={NoMatch} />
         <Route path="/about" exact component={About} />
         <Route path="/" exact component={Home} />
-        <Redirect to="/no-match" />
+        <Redirect to={useLocation().pathname} />
       </Switch>
 
       <LocationDisplay />
