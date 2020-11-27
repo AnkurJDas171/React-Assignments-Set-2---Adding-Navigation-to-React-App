@@ -6,14 +6,19 @@ import LocationDisplay from "./LocationDisplay";
 import NoMatch from "./noMatch";
 import "../styles/App.css";
 
-function App() {
-  const locationPath = useLocation();
-  const [location, setLocation] = useState(locationPath.pathname);
+function LocationRender() {
+  let newLocation = useLocation().pathname;
 
-  const handelAncherTag = () => {
-    //let newLocation = useLocation();
-    setLocation(locationPath.pathname);
-  };
+  return newLocation;
+}
+
+function App() {
+  const locationPath = LocationRender();
+  const [location, setLocation] = React.useState(locationPath);
+
+  if (location !== locationPath) {
+    setLocation(locationPath);
+  }
 
   return (
     <div id="main">
@@ -26,12 +31,8 @@ function App() {
         <Redirect to="/no-match" />
       </Switch>
 
-      <a href="/" onClick={handelAncherTag}>
-        Home
-      </a>
-      <a href="/about" onClick={handelAncherTag}>
-        About
-      </a>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
     </div>
   );
 }
